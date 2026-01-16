@@ -4,76 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IVX Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .thumbnail-button {
+            display: block;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+            border-radius: 9px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+        }
+
+        .thumbnail-button:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        .thumbnail-button:active {
+            transform: scale(0.98);
+        }
+
+        .thumbnail-button img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 9px;
+        }
+
+        /* Dummy thumbnail */
+        .thumbnail-dummy {
+            position: relative;
+            border-radius: 9px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            aspect-ratio: 16 / 9;
+            background-color: #e0e0e0;
+            cursor: default;
+        }
+
+        .thumbnail-dummy::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
+        }
+
+        .dummy-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 12px;
+            color: #999;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .thumbnail-dummy:hover .dummy-message {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .thumbnail-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .thumbnail-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <!-- 1. Cover Image -->
-        <div class="media-item">
-            <img src="images/IVX_2023_Cover2.png" alt="IVX Cover">
+    <div class="thumbnail-grid">
+        <!-- Real thumbnail -->
+        <a href="portfolio.html" class="thumbnail-button">
+            <img src="images/IVX 2023_thumbnail.jpg" alt="IVX Portfolio Thumbnail">
+        </a>
+
+        <!-- Dummy thumbnails -->
+        <div class="thumbnail-dummy">
+            <span class="dummy-message">준비중입니다.</span>
         </div>
 
-        <!-- 2. IVX_001 -->
-        <div class="media-item">
-            <img src="images/IVX_001.png" alt="IVX 001">
+        <div class="thumbnail-dummy">
+            <span class="dummy-message">준비중입니다.</span>
         </div>
 
-        <!-- 3. Anim_merge_001.mp4 -->
-        <div class="media-item">
-            <video autoplay muted loop playsinline preload="auto">
-                <source src="videos/Anim_merge_001.mp4" type="video/mp4">
-            </video>
+        <div class="thumbnail-dummy">
+            <span class="dummy-message">준비중입니다.</span>
         </div>
 
-        <!-- 4. Anim_003_ColorProject.mp4 -->
-        <div class="media-item">
-            <video autoplay muted loop playsinline preload="auto">
-                <source src="videos/Anim_003_ColorProject.mp4" type="video/mp4">
-            </video>
+        <div class="thumbnail-dummy">
+            <span class="dummy-message">준비중입니다.</span>
         </div>
 
-        <!-- 5. IVX_003 -->
-        <div class="media-item">
-            <img src="images/IVX_003.png" alt="IVX 003">
-        </div>
-
-        <!-- 5. IVX_005 -->
-        <div class="media-item">
-            <img src="images/IVX_005.png" alt="IVX 005">
-        </div>
-
-        <!-- 6. VP Test_001.mp4 -->
-        <div class="media-item">
-            <video autoplay muted loop playsinline preload="auto">
-                <source src="videos/VP Test_001.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <!-- 7. IVX_cut.png -->
-        <div class="media-item">
-            <img src="images/IVX_cut.png" alt="IVX Cut">
-        </div>
-
-        <!-- 8-10. Padded Video Section (IVX_Clip_001, IVX_Clip_002, Anim_003_ColorProject) -->
-        <div class="padded-section">
-            <!-- 8. IVX_Clip_001.mp4 -->
-            <div class="media-item">
-                <video autoplay muted loop playsinline preload="auto">
-                    <source src="videos/IVX_Clip_001.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <!-- 9. IVX_Clip_002.mp4 -->
-            <div class="media-item">
-                <video autoplay muted loop playsinline preload="auto">
-                    <source src="videos/IVX_Clip_002.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-
-        <!-- 11. IVX_008 -->
-        <div class="media-item">
-            <img src="images/IVX_008.png" alt="IVX 008">
+        <div class="thumbnail-dummy">
+            <span class="dummy-message">준비중입니다.</span>
         </div>
     </div>
 </body>
