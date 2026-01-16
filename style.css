@@ -33,18 +33,13 @@ body {
     border: none;
 }
 
-.clip-section {
+.padded-section {
     background-color: #050505;
     padding-top: 300px;
     padding-bottom: 300px;
     display: flex;
     flex-direction: column;
     gap: 300px;
-}
-
-.spacer {
-    background-color: #050505;
-    height: 300px;
 }
 
 /* Hide controls only for videos without controls attribute (autoplay videos) */
